@@ -2,10 +2,10 @@
   <%= link_to book_favorites_path(book), method: :delete, remote: true, style: "color: red;" do %>
     <i class="fas fa-thumbs-up"></i>
   <% end %>
-  <%= book.favorites.count %>
+  <%= book.week_favorites.count %>
 <% else %>
   <%= link_to book_favorites_path(book), method: :post, remote: true do %>
     <i class="fas fa-thumbs-up"></i>
   <% end %>
-  <%= book.favorites.count %>
+  <%= book.week_favorites.count %>
 <% end %>
