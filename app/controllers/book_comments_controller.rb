@@ -3,13 +3,13 @@ class BookCommentsController < ApplicationController
   before_action :ensure_correct_user, only: %i(destroy)
 
   def create
-    @book = Book.find(params[:book_id])
+    book = Book.find(params[:book_id])
     @book_comment = current_user.book_comments.new(book_comment_params)
     unless @book_comment.save
       flash[:danger] = book_comment.errors
       redirect_back fallback_location: root_path
     end
-    @book_comments = Book.find(params[:book_id]).book_comments
+    book_comments = Book.find(params[:book_id]).book_comments
   end
 
   def destroy

@@ -11,8 +11,8 @@
       <tr>
         <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
         <td><%= user.name %></td>
-        <td><i class="fa-solid fa-lemon">:</i><%= user.followings.count %></td>
-        <td><i class="fa-regular fa-lemon"></i>:</i><%= user.followers.count %></td>
+        <td><i class="fa-solid fa-hippo"></i><%= user.followings.count %></td>
+        <td><i class="fa-solid fa-piggy-bank"></i><%= user.followers.count %></td>
         <td>
         <% if user != current_user %>
           <% if user.is_followed_by?(current_user) %>

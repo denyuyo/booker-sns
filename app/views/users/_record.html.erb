@@ -1,14 +1,14 @@
-<h4>7日間分の投稿数</h4>
+<h4>Number of books in 7 days</h4>
   <table class='table table-bordered'>
     <thead>
       <tr>
-        <th>６日前</th>
-        <th>５日前</th>
-        <th>４日前</th>
-        <th>３日前</th>
-        <th>２日前</th>
-        <th>１日前</th>
-        <th>今日</th>
+        <th>６days ago</th>
+        <th>５days ago</th>
+        <th>４days ago</th>
+        <th>３days ago</th>
+        <th>２days ago</th>
+        <th>１days ago</th>
+        <th>today</th>
       </tr>
     </thead>
     <tbody>
@@ -33,10 +33,10 @@
       var myLineChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ['6日前', '5日前', '4日前', '3日前', '2日前', '1日前', '今日'],
+          labels: ['6 days ago', '5 days ago', '4 days ago', '3 days ago', '2 days ago', '1 days ago', 'today'],
           datasets: [
             {
-              label: '投稿した本の数',
+              label: 'Number of books submitted',
               data: [
                 <%= @books.created_6day_ago.count %>,
                 <%= @books.created_5day_ago.count %>,
