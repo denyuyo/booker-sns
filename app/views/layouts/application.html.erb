@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+    <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-3-11/css/5-3-11.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <%= csrf_meta_tags %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <%= stylesheet_link_tag 'app' %>
+    <%= stylesheet_link_tag 'font' %>
   </head>
 
   <body>
@@ -18,26 +21,26 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto gnavi">
               <% if user_signed_in? %>
                <li>
                 <%= link_to user_path(current_user.id) ,class: "nav-link text-light" do %>
-                  <i class="fas fa-home"></i> Home
+                  <i class="fas fa-home"></i> <span>Home</span>
                 <% end %>
               </li>
               <li>
                 <%= link_to users_path ,class: "nav-link text-light" do %>
-                  <i class="fas fa-users"></i> Users
+                  <i class="fas fa-users"></i> <span>Users</span>
                 <% end %>
               </li>
               <li>
                 <%= link_to books_path ,class: "nav-link text-light" do %>
-                  <i class="fas fa-book-open"></i> Books
+                  <i class="fas fa-book-open"></i> <span>Books</span>
                 <% end %>
               </li>
               <li>
                 <%= link_to destroy_user_session_path, method: :delete ,class: "nav-link text-light" do %>
-                  <i class="fas fa-sign-out-alt"></i> Log out
+                  <i class="fas fa-sign-out-alt"></i> <span>Log out</span>
                 <% end %>
                 </li>
               <% else %>
@@ -67,15 +70,15 @@
         </div>
       </nav>
   </header>
-  <body>
     <%= render 'searchs/form' %>
-  </body>
+  <main class="fadeIn">
   <% if flash[:notice] %>
      <p id="notice">
        <%= flash[:notice] %>
      </p>
-<% end %>
+  <% end %>
     <%= yield %>
+    </main>
   <footer>
     <div class='container mt-5'>
     	<div class='row'>
