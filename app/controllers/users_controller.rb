@@ -1,12 +1,13 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :only => [:show]
   before_action :ensure_correct_user, only: [:update, :edit]
 
   def show
     @user = User.find(params[:id])
     @currentUserEntry=Entry.where(user_id: current_user.id)
     @userEntry=Entry.where(user_id: @user.id)
-    unless @user.id == current_user.id
+    if @user.id == current_user.id
+    else
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
           if cu.room_id == u.room_id then
