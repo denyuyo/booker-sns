@@ -44,6 +44,7 @@
 		   </tbody>
 		  </table>
 		  	<%= form_with model: [@book, @book_comment], local: false do |f| %>
+		  	
   				<%= f.text_area :content, rows:'5',placeholder: "Comments Here.", class: "w-100" %>
   				<%= f.submit 'Send', class: 'btn btn-warning' %>
   			<% end %>
