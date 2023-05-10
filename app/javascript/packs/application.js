@@ -7,9 +7,13 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+
 import "jquery"
 import "popper.js"
 import "bootstrap"
+
+import anime from 'animejs';
+import 'jquery.inview.js';
 
 import '@fortawesome/fontawesome-free/js/all';
 import "../stylesheets/application" 
@@ -37,7 +41,6 @@ $(function() {
     }
   });
 });
-
 
 //= require jquery
 //= require jquery_ujs
