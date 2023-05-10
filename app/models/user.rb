@@ -16,6 +16,13 @@ class User < ApplicationRecord
   
   has_many :messages, dependent: :destroy #アソシエーション
   has_many :entries, dependent: :destroy
+  
+  def self.guest
+    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user| #find_or_create_by!メソッドを使って、nameが'guestuser'、emailが'guest@example.com'のユーザーが存在するか探す。もし存在しなければ、新しいユーザーを作成する。
+      user.password = SecureRandom.urlsafe_base64 #ブロック内のコードで、パスワードをランダムに生成して、nameに"guestuser"を設定する。
+      user.name = "guestuser" #新しいユーザーオブジェクトを返す。
+    end
+  end
 
 
   validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true

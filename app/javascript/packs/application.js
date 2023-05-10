@@ -21,5 +21,23 @@ ActiveStorage.start()
 global.$ = jQuery;
 window.$ = jQuery;
 
+// jQuery呼び出し
+window.$ = window.jQuery = require('jquery');
+require('packs/raty')
+
+// Raty.js初期化
+$(function() {
+  $('#star').raty({
+    starType: 'i',
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    click: function(score, evt) {
+      $('#rating').val(score);
+    }
+  });
+});
+
+
 //= require jquery
 //= require jquery_ujs
